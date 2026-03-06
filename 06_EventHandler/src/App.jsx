@@ -34,7 +34,7 @@ function App() {
   return (
     <div className="wrapper" style={{ backgroundColor: themeColor }}>
       <div className="card">
-        <h1>Event Handle</h1>
+        <h1>Event Lab</h1>
         
         {/* onSubmit Practice */}
         <form onSubmit={handleFormSubmit}>
