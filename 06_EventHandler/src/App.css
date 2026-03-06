@@ -1,0 +1,73 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui, sans-serif;
+  transition: background 1s ease;
+  -webkit-transition: background 1s ease;
+  -moz-transition: background 1s ease;
+  -ms-transition: background 1s ease;
+  -o-transition: background 1s ease;
+}
+
+.card {
+  background: white;
+  padding: 60px;
+  border-radius: 30px;
+  width: 320px;
+  text-align: center;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.submit-btn {
+  background: #000;
+  color: #fff;
+  width: 90%;
+}
+
+.theme-btn {
+  margin-top: 20px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+.display-area {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.hover-active {
+  background: #f8f8f8;
+  border-color: #333;
+  transform: scale(1.02);
+}
+
+hr {
+  margin: 25px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
