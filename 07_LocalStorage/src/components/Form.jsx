@@ -1,111 +1,102 @@
-import {useState,useEffect} from "react"
+import { useState, useEffect } from "react"
 import Rating from "./Rating"
 
-export default function Form({addCard,editData,updateCard}){
+export default function Form({ addCard, editData, updateCard }) {
 
-const [name,setName] = useState("")
-const [nation,setNation] = useState("")
-const [img,setImg] = useState("")
-const [rating,setRating] = useState(0)
+    const [name, setName] = useState("")
+    const [nation, setNation] = useState("")
+    const [img, setImg] = useState("")
+    const [rating, setRating] = useState(0)
 
-useEffect(()=>{
+    useEffect(() => {
 
-if(editData){
+        if (editData) {
+            setName(editData.name)
+            setNation(editData.nation)
+            setImg(editData.img)
+            setRating(editData.rating)
+        }
 
-setName(editData.name)
-setNation(editData.nation)
-setImg(editData.img)
-setRating(editData.rating)
+    }, [editData])
+    const handleImage = (e) => {
+        const file = e.target.files[0]
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            setImg(reader.result)
+        }
 
-}
+        reader.readAsDataURL(file)
 
-},[editData])
-
-
-const handleImage = (e)=>{
-
-const file = e.target.files[0]
-
-const reader = new FileReader()
-
-reader.onloadend = ()=>{
-
-setImg(reader.result)
-
-}
-
-reader.readAsDataURL(file)
-
-}
+    }
 
 
-const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
 
-e.preventDefault()
+        e.preventDefault()
 
-const data={
+        const data = {
 
-id: editData ? editData.id : Date.now(),
-name,
-nation,
-img,
-rating
+            id: editData ? editData.id : Date.now(),
+            name,
+            nation,
+            img,
+            rating
 
-}
+        }
 
-if(editData){
+        if (editData) {
 
-updateCard(data)
+            updateCard(data)
 
-}else{
+        } else {
 
-addCard(data)
+            addCard(data)
 
-}
+        }
 
-setName("")
-setNation("")
-setImg("")
-setRating(0)
+        setName("")
+        setNation("")
+        setImg("")
+        setRating(0)
 
-}
+    }
 
-return(
+    return (
 
-<form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
 
-<input
-type="text"
-placeholder="Name"
-value={name}
-onChange={(e)=>setName(e.target.value)}
-required
-/>
+            <input
+                type="text"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+            />
 
-<select
-value={nation}
-onChange={(e)=>setNation(e.target.value)}
->
+            <select
+                value={nation}
+                onChange={(e) => setNation(e.target.value)}
+            >
 
-<option value="">Nationality</option>
-<option>India</option>
-<option>USA</option>
-<option>UK</option>
+                <option value="">Nationality</option>
+                <option>India</option>
+                <option>USA</option>
+                <option>UK</option>
 
-</select>
+            </select>
 
-<input type="file" onChange={handleImage}/>
+            <input type="file" onChange={handleImage} />
 
-<Rating rating={rating} setRating={setRating}/>
+            <Rating rating={rating} setRating={setRating} />
 
-<button type="submit">
+            <button type="submit">
 
-{editData ? "Update" : "Save"}
+                {editData ? "Update" : "Save"}
 
-</button>
+            </button>
 
-</form>
+        </form>
 
-)
+    )
 
 }
