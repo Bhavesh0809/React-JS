@@ -7,9 +7,9 @@ export const fetchProducts = () => async (dispatch) => {
   dispatch({ type: 'GET_PRODUCTS', payload: res.data });
 };
 
-export const addProduct = (product) => async (dispatch) => {
-  const res = await axios.post(API_URL, product);
-  dispatch({ type: 'ADD_PRODUCT', payload: res.data });
+export const addProduct = (product) => (dispatch) => {
+  const newProduct = { ...product, id: Date.now() };
+  dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
 };
 
 export const updateProduct = (id, product) => async (dispatch) => {

@@ -1,5 +1,20 @@
 const initialState = {
-  products: [],
+  products: [
+    {
+      id: 1,
+      title: "Blue T-Shirt",
+      price: 19.99,
+      category: "Clothing",
+      image: "https://via.placeholder.com/150"
+    },
+    {
+      id: 2,
+      title: "Running Shoes",
+      price: 59.99,
+      category: "Footwear",
+      image: "https://via.placeholder.com/150"
+    }
+  ],
   isAuthenticated: false,
 };
 
